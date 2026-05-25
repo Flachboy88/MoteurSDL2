@@ -4,6 +4,7 @@
 #include "test_timer.c"
 #include "test_save.c"
 #include "test_flags.c"
+#include "test_input.c"
 
 int main(int argc, char *argv[]) {
     (void)argc; (void)argv;
@@ -17,6 +18,7 @@ int main(int argc, char *argv[]) {
     suite_timer();
     suite_save();
     suite_flags();
+    suite_input();
     FIN_TESTS();
 
     SDL_Quit();
