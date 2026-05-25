@@ -5,7 +5,10 @@
       "Bash(New-Item -ItemType Directory -Force \"D:\\\\Perso\\\\programmes perso\\\\C\\\\MoteurSDL2\\\\.vscode\")",
       "PowerShell(New-Item -ItemType Directory -Force \"D:\\\\Perso\\\\programmes perso\\\\C\\\\MoteurSDL2\\\\docs\\\\superpowers\\\\specs\")",
       "Bash(make lib *)",
-      "Bash(make test *)"
+      "Bash(make test *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git commit *)"
     ]
   }
 }

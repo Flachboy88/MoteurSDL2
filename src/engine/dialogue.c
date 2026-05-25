@@ -53,7 +53,10 @@ FichierDialogues *charger_dialogues(const char *chemin) {
             bloc->nb_lignes++;
             bloc->lignes_texte = realloc(bloc->lignes_texte,
                                           bloc->nb_lignes * sizeof(char *));
-            bloc->lignes_texte[bloc->nb_lignes - 1] = strdup(texte);
+            int len = (int)strlen(texte);
+            char *copie = malloc(len + 1);
+            memcpy(copie, texte, len + 1);
+            bloc->lignes_texte[bloc->nb_lignes - 1] = copie;
         }
         else if (bloc && strncmp(ligne, "action: ", 8) == 0) {
             char *params = ligne + 8;

@@ -75,7 +75,7 @@ D:/Perso/programmes perso/C/
 
 ---
 
-## Module 1 — Core (wrapper SDL2)
+## Module 1 — Core (wrapper SDL2) [V]
 
 ### core.h/.c
 
@@ -131,7 +131,7 @@ void    configurer_touches(Entree *entree, Fichier_KV *config);
 
 ---
 
-## Module 2 — State Machine
+## Module 2 — State Machine [V]
 
 ```c
 typedef struct Etat {
@@ -156,7 +156,7 @@ Etat   *obtenir_etat_courant(PileEtats *pile);
 
 ---
 
-## Module 3 — Entités
+## Module 3 — Entités [V]
 
 ```c
 typedef struct Entite {
@@ -194,7 +194,7 @@ int            collision_rect(Entite *a, Entite *b);
 
 ---
 
-## Module 4 — Caméra
+## Module 4 — Caméra [V]
 
 ```c
 typedef struct Camera {
@@ -211,7 +211,7 @@ void    fixer_camera(Camera *camera, float x, float y);
 
 ---
 
-## Module 5 — Renderer
+## Module 5 — Renderer [V]
 
 ```c
 typedef struct Rendu {
@@ -226,7 +226,7 @@ void    dessiner_rect(Rendu *rendu, int x, int y, int w, int h, Couleur couleur)
 
 ---
 
-## Module 6 — Sprites et animations
+## Module 6 — Sprites et animations [V]
 
 ```c
 typedef struct Frame {
@@ -262,7 +262,7 @@ void    afficher_sprite(Sprite *sprite, float x, float y, Camera *camera, Rendu 
 
 ---
 
-## Module 7 — Tilemap (cartes TMX)
+## Module 7 — Tilemap (cartes .map custom) [V]
 
 ```c
 typedef struct Couche {
@@ -306,7 +306,7 @@ void    afficher_scene(Carte *carte, ListeEntites *entites, Camera *camera, Rend
 
 ---
 
-## Module 8 — Audio
+## Module 8 — Audio [Todo — SDL2_mixer non installé]
 
 ```c
 void    initialiser_audio(void);
@@ -326,7 +326,7 @@ void    liberer_sons(void);
 
 ---
 
-## Module 9 — Texte
+## Module 9 — Texte [V]
 
 ```c
 typedef struct Police {
@@ -341,7 +341,7 @@ void    afficher_texte(Rendu *rendu, Police *police, const char *texte, int x, i
 
 ---
 
-## Module 10 — Dialogues et Flags
+## Module 10 — Dialogues et Flags [V]
 
 ### Flags (événements)
 
@@ -438,7 +438,7 @@ texte: "Sois prudent dehors !"
 
 ---
 
-## Module 11 — Sauvegarde et configuration
+## Module 11 — Sauvegarde et configuration [V]
 
 ```c
 typedef struct Fichier_KV {
@@ -464,7 +464,7 @@ Deux fichiers séparés, même format :
 
 ---
 
-## Struct Moteur (point central)
+## Struct Moteur (point central) [Todo]
 
 ```c
 typedef struct Moteur {
@@ -523,7 +523,7 @@ Toutes en version i686 (32-bit), situées dans `D:/Perso/programmes perso/Libs/`
 
 ---
 
-## Module 12 — Framework de tests
+## Module 12 — Framework de tests [V]
 
 Framework de tests minimaliste intégré, style JUnit fait main en C. Teste uniquement la logique pure (pas de contexte SDL requis).
 
