@@ -2,6 +2,8 @@
 #include <SDL2/SDL.h>
 
 #include "test_timer.c"
+#include "test_save.c"
+#include "test_flags.c"
 
 int main(int argc, char *argv[]) {
     (void)argc; (void)argv;
@@ -13,6 +15,8 @@ int main(int argc, char *argv[]) {
 
     DEBUT_TESTS();
     suite_timer();
+    suite_save();
+    suite_flags();
     FIN_TESTS();
 
     SDL_Quit();
