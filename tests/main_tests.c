@@ -6,6 +6,7 @@
 #include "test_flags.c"
 #include "test_input.c"
 #include "test_state.c"
+#include "test_entity.c"
 
 int main(int argc, char *argv[]) {
     (void)argc; (void)argv;
@@ -21,6 +22,7 @@ int main(int argc, char *argv[]) {
     suite_flags();
     suite_input();
     suite_state();
+    suite_entity();
     FIN_TESTS();
 
     SDL_Quit();
