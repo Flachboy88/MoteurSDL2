@@ -1,0 +1,6 @@
+*.o
+*.a
+*.exe
+bin/SDL2.dll
+bin/SDL2_ttf.dll
+bin/SDL2_image.dll

@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Windows (MinGW)",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "D:/Perso/programmes perso/Libs/SDL2-2.30.11/i686-w64-mingw32/include",
+                "D:/Perso/programmes perso/Libs/SDL2_ttf-2.24.0/i686-w64-mingw32/include",
+                "D:/Perso/programmes perso/Libs/SDL2_image-2.8.4/i686-w64-mingw32/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "C:/MinGW/bin/gcc.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x86"
+        }
+    ],
+    "version": 4
+}
