@@ -7,6 +7,7 @@
 #include "test_input.c"
 #include "test_state.c"
 #include "test_entity.c"
+#include "test_camera.c"
 
 int main(int argc, char *argv[]) {
     (void)argc; (void)argv;
@@ -23,6 +24,7 @@ int main(int argc, char *argv[]) {
     suite_input();
     suite_state();
     suite_entity();
+    suite_camera();
     FIN_TESTS();
 
     SDL_Quit();
