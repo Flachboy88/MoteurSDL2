@@ -9,6 +9,8 @@
 #include "test_entity.c"
 #include "test_camera.c"
 #include "test_dialogue.c"
+#include "test_xml.c"
+#include "test_tilemap.c"
 
 int main(int argc, char *argv[]) {
     (void)argc; (void)argv;
@@ -27,6 +29,8 @@ int main(int argc, char *argv[]) {
     suite_entity();
     suite_camera();
     suite_dialogue();
+    suite_xml();
+    suite_tilemap();
     FIN_TESTS();
 
     SDL_Quit();
