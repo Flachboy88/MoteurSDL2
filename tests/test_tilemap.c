@@ -186,6 +186,41 @@ static int test_tilemap_animation(void) {
     return 1;
 }
 
+static int test_tilemap_parse_animation_inline(void) {
+    const char *tmx =
+        "<?xml version=\"1.0\"?>\n"
+        "<map width=\"1\" height=\"1\" tilewidth=\"16\" tileheight=\"16\">\n"
+        " <tileset firstgid=\"1\" name=\"T\" tilewidth=\"16\" tileheight=\"16\" tilecount=\"36\" columns=\"6\">\n"
+        "  <image source=\"t.png\" width=\"96\" height=\"96\"/>\n"
+        "  <tile id=\"14\">\n"
+        "   <animation>\n"
+        "    <frame tileid=\"14\" duration=\"350\"/>\n"
+        "    <frame tileid=\"13\" duration=\"350\"/>\n"
+        "    <frame tileid=\"12\" duration=\"350\"/>\n"
+        "   </animation>\n"
+        "  </tile>\n"
+        " </tileset>\n"
+        "</map>\n";
+    ecrire_fichier("bin/t_anim.tmx", tmx);
+
+    Carte c = charger_carte(NULL, "bin/t_anim.tmx");
+    ASSERT_EGAL(1, c.nb_tilesets);
+    ASSERT_EGAL(1, c.tilesets[0].nb_animations);
+    TuileAnimee *a = &c.tilesets[0].animations[0];
+    ASSERT_EGAL(14, a->tile_local);
+    ASSERT_EGAL(3, a->nb_frames);
+    ASSERT_EGAL(14, a->frames[0].tile_local);
+    ASSERT_EGAL(350, a->frames[0].duree_ms);
+    ASSERT_EGAL(13, a->frames[1].tile_local);
+    ASSERT_EGAL(12, a->frames[2].tile_local);
+    /* gid 15 = firstgid(1) + tile 14 -> doit mapper sur ce tileset */
+    ASSERT_EGAL(1, tileset_pour_gid(&c, 15)->firstgid);
+
+    detruire_carte(&c);
+    remove("bin/t_anim.tmx");
+    return 1;
+}
+
 static void suite_tilemap(void) {
     LANCER_TEST(test_tilemap_couche_csv);
     LANCER_TEST(test_tilemap_tilesets);
@@ -193,4 +228,5 @@ static void suite_tilemap(void) {
     LANCER_TEST(test_tilemap_collision);
     LANCER_TEST(test_tilemap_gid_resolution);
     LANCER_TEST(test_tilemap_animation);
+    LANCER_TEST(test_tilemap_parse_animation_inline);
 }
