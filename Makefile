@@ -24,7 +24,7 @@ CORE_SRC    = src/core/core.c src/core/window.c src/core/timer.c src/core/input.
 ENGINE_SRC  = src/engine/state.c src/engine/entity.c src/engine/camera.c \
               src/engine/renderer.c src/engine/sprite.c src/engine/tilemap.c \
               src/engine/text.c src/engine/flags.c src/engine/save.c \
-              src/engine/dialogue.c
+              src/engine/dialogue.c src/engine/moteur.c
 
 MOTEUR_SRC  = $(CORE_SRC) $(ENGINE_SRC)
 MOTEUR_OBJ  = $(MOTEUR_SRC:.c=.o)

@@ -464,7 +464,7 @@ Deux fichiers séparés, même format :
 
 ---
 
-## Struct Moteur (point central) [Todo]
+## Struct Moteur (point central) [V]
 
 ```c
 typedef struct Moteur {
