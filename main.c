@@ -9,19 +9,21 @@ static void demo_events(Etat *etat, Entree *entree) {
 }
 static void demo_update(Etat *etat, float dt) { (void)etat; (void)dt; }
 static void demo_render(Etat *etat, Rendu *rendu) {
-    (void)etat;
-    Couleur bleu = {50, 50, 200, 255};
-    dessiner_rect(rendu, 350, 250, 100, 100, bleu);
+    Carte *carte = (Carte *)etat->donnees;
+    if (carte) afficher_carte(carte, rendu->camera, rendu);
 }
 static void demo_destroy(Etat *etat) { (void)etat; }
 
 int main(int argc, char *argv[]) {
     (void)argc; (void)argv;
 
-    Moteur moteur = creer_moteur("MoteurSDL2 — Demo", 800, 600);
+    Moteur moteur = creer_moteur("MoteurSDL2 — Demo TMX", 800, 600);
     if (!moteur.en_cours) return 1;
 
+    Carte carte = charger_carte(moteur.rendu.renderer, "resources/maps/map3.tmx");
+
     Etat demo = {0};
+    demo.donnees = &carte;
     demo.initialiser = demo_init;
     demo.gerer_evenements = demo_events;
     demo.mettre_a_jour = demo_update;
@@ -30,7 +32,8 @@ int main(int argc, char *argv[]) {
 
     ajouter_etat(&moteur, demo);
     lancer_moteur(&moteur);
-    detruire_moteur(&moteur);
 
+    detruire_carte(&carte);
+    detruire_moteur(&moteur);
     return 0;
 }
